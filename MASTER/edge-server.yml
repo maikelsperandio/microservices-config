@@ -5,3 +5,20 @@ eureka:
     client:
         serviceUrl:
              defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  debug:
+    request: true
+  routes:
+    car-service:
+        path: /car-service/**
+        serviceId: car-service
+        stripPrefix: true
+    rent-service:
+        path: /rent-service/**
+        serviceId: rent-service
+        stripPrefix: true
+    rent-car-composite:
+        path: /rent-car-composite/**
+        serviceId: rent-car-composite
+        stripPrefix: true
